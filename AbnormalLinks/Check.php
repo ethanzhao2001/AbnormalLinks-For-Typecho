@@ -34,8 +34,9 @@ if (!$user->pass('administrator')) {
                     urls_arr.forEach(function(value, index) {
                         check_get(value).then(function(resolve, reject) {
                             //console.log(resolve);
-                            if (resolve === false) {
+                            if (resolve !== true) {
                                 errurls_arr[i] = value;
+                                errurls_arr[i]['status'] = resolve;
                                 i++;
                             }
                             num++;
@@ -73,7 +74,7 @@ if (!$user->pass('administrator')) {
                         } else {
                             //console.log('无效链接');
                             //console.log(value);
-                            resolve(false);
+                            resolve(res.status);
                         }
                     }
                 });
@@ -117,7 +118,12 @@ if (!$user->pass('administrator')) {
                     echo '<h3>异常友链如下</h3>';
                     echo '<form>';
                     foreach ($AbnormalLinks as $invalidlink) {
-                        echo '<input type="checkbox" name="select" value="' . $invalidlink['lid'] . '" /> <a href="' . $invalidlink['url'] . '"> ' . $invalidlink['name'] . '</a><br>';
+                        if($invalidlink['status'] === ''){
+                            $status = '无状态码返回';
+                        }else{
+                            $status = $invalidlink['status'];
+                        }
+                        echo '<input type="checkbox" name="select" value="' . $invalidlink['lid'] . '" /> <a href="' . $invalidlink['url'] . '"> ' . $invalidlink['name'] . '</a> 【' . $status . '】<br>';
                     }
                     echo '</form>';
                     echo '<button onclick="del()" class="btn primary" style="margin: 1em 0 0">设为失效</button>';
