@@ -18,4 +18,8 @@
 
 *卸载插件请先禁用插件，不要直接删除插件。*
 
+## 更新
+
+* 遇到异常返回错误状态码，方便排查问题
+
 博客：[https://www.zhaoyingtian.com/archives/95.html](https://www.zhaoyingtian.com/archives/95.html)
