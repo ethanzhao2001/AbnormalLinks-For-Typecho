@@ -18,5 +18,4 @@
 
 *卸载插件请先禁用插件，不要直接删除插件。*
 
-![](https://cdn.zhaoyingtian.com/blog/2021/09/09/211539.jpg)
 博客：[https://www.zhaoyingtian.com/archives/95.html](https://www.zhaoyingtian.com/archives/95.html)
